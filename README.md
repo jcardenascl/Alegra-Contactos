@@ -1,7 +1,7 @@
-Ionic App Base
+Alegra-Contactos
 ==============
 
-A starting project for Ionic that optionally supports using custom SCSS.
+CRUD de contactos realizada en Ionic v1 para Alegra, la App se conecta a la API pubico de [Alegra](https://developer.alegra.com/) . 
 
 ## Using this project
 

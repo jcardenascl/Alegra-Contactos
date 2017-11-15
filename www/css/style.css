@@ -3,7 +3,7 @@
   border: none;
   background-image: none !important;
 }
-.has-header {
+.has-header, .top-header {
   top: 56px;
 }
 .bar{
@@ -52,4 +52,11 @@ ion-content.contentDetail.scroll-content.ionic-scroll.overflow-scroll.has-header
 
 .scroll-bar-indicator{
 	display: none;
+}
+
+
+ input[type="search"] {
+  height: 40px;
+  font-size: 16px;
+  margin-left: 16px;
 }

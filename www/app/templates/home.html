@@ -1,14 +1,31 @@
-<ion-header-bar class="bar-assertive">
+<ion-header-bar class="bar-assertive" ng-show="!barSearch">
     <h1 class="title">Alegra-Contactos</h1>
-    <button class="button button-icon" ng-click="sortToggle({{contacts}})">
-        <i class="icon ion-android-funnel"></i>
+    <div class="buttons">
+        <button class="button button-icon" ng-click="sortToggle({{contacts}})">
+            <i class="icon ion-android-funnel"></i>
+        </button>
+        <button class="button button-icon" ng-click="ToggleBar()">
+            <i class="icon ion-android-search"></i>
+        </button>
+    </div>
+</ion-header-bar>
+<ion-header-bar class="bar-light" ng-show="barSearch">
+    <button class="button button-clear" ng-click="ToggleBar()">
+        <i class="icon ion-android-arrow-back"></i>
     </button>
+    <!-- <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i> -->
+        <input type="search" placeholder="Buscar..." ng-model="search" >
+    <!-- </label> -->
 </ion-header-bar>
 <button class="button button-float" data-ng-controller="modal" ng-click="openModal()">
     <i class="icon ion-plus"></i>
 </button>
     
-<ion-content ng-init="getcontacts()" overflow-scroll="false">
+<ion-content ng-init="getcontacts()" cache-view="false" overflow-scroll="false" class="top-header" delegate-handle="mainScroll">
+    <ion-refresher on-refresh="doRefresh($event)">
+        <ion-refresher-content refreshingSpinner="circles"></ion-refresher-content>
+    </ion-refresher>
     <div class="row  responsive-sm" ng-if="loading">
         <div class="col col-center">
             <ion-spinner icon="android"></ion-spinner>
@@ -22,7 +39,12 @@
     </div>
 
     <div class="list contact" ng-if="!NotFound">
-        <user-Contact ng-repeat="contact in contacts" name="{{contact.name}}" id="{{contact.id}}"></user-Contact>
+        <user-Contact ng-repeat="contact in contacts | filter:search:strict" name="{{contact.name}}" id="{{contact.id}}"></user-Contact>
     </div>
+    <ion-infinite-scroll
+        ng-if="moredata"
+        on-infinite="loadMore()"
+        distance="1%">
+  </ion-infinite-scroll>
 </ion-content>
 
