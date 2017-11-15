@@ -1,26 +1,47 @@
 Alegra-Contactos
 ==============
 
-CRUD de contactos realizada en Ionic v1 para Alegra, la App se conecta a la API pubico de [Alegra](https://developer.alegra.com/) . 
+CRUD de contactos realizada en Ionic v1 para Alegra, la App se conecta a la API pubico de [Alegra](https://developer.alegra.com/). 
 
-## Using this project
+## Pautas realizadas.
+  - Listar Contactos.
+  - Scroll infinito, busqueda y recarga. (pull to refresh).
+  - Crear contacto, ignorando los campos  “ignoreRepeated”,“priceList”, “seller”, “term”, ni “internalContacts”.
+  - Vista para los detalles de un contacto.
+  - Borra el contacto en la API.
+  - No se realizó la funcion de edicion por peticion de Alegra.
+  
+### *Se creó una directiva y controlador para la lista de contactos.
 
-We recommend using the [Ionic CLI](https://github.com/ionic-team/ionic-cli) to create new Ionic projects that are based on this project but use a ready-made starter template.
-
-For example, to start a new Ionic project with the default tabs interface, make sure the `ionic` utility is installed:
+## Uso.
+Pasos para instalar el proyecto:
 
 ```bash
-$ npm install -g ionic cordova
+git clone https://github.com/jcardenascl/Alegra-Contactos.git
 ```
 
-Then run:
+Instalar las dependencias:
 
 ```bash
-$ ionic start myProject tabs --type=ionic1
+$ npm install
 ```
 
-More info on this can be found on the Ionic [Getting Started](https://ionicframework.com/getting-started) page and the [Ionic CLI](https://github.com/ionic-team/ionic-cli) repo.
+Iniciar el servidor:
 
-## Issues
+```bash
+$ ionic serve
+```
 
-Issues have been disabled on this repo. If you do find an issue or have a question, consider posting it on the [Ionic Forum](https://forum.ionicframework.com/). If there is truly an error, follow our guidelines for [submitting an issue](https://ionicframework.com/submit-issue/) to the main Ionic repository.
+Para conectarse a la API se debe crear un provider del tipo "value" llamado "ApiConnect" con los valores: 
+- email
+- token
+
+
+### Por ejemplo
+
+```sh
+myApp.value('ApiConnect', {
+  'email' : 'xxxxxxxx@xxx.xxx',
+  'token' : 'xxxxxxxxxxxxxxxxx'
+});
+```

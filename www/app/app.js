@@ -39,17 +39,6 @@ alegra.config(function($stateProvider, $urlRouterProvider) {
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home');
  });
- alegra.directive('userContact', [function() {
-  return {
-    restrict: 'E',
-    scope:{
-      name: '@',
-      img: '@',
-      id: '@'
-    },
-    template:'<a class="item item-avatar" href="#/details/\{{id}}\"> <img src="./img/user-4.png"> <h2>{{name}}</h2></a> '
-  };
-}]);
 
  alegra.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
