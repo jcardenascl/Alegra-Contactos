@@ -1,0 +1,59 @@
+<ion-header-bar align-title="left" class="bar-positive no-border" ng-init="getContact()" >
+    <button  class="button button-icon" ui-sref="home">
+        <i class="icon ion-android-arrow-back"></i>
+    </button>
+    <h1 class="title"></h1>
+    <div class="buttons">
+        <button  class="button button-icon" ng-click="showConfirm()">
+            <i class="icon ion-trash-b"></i>
+        </button>
+    </div>
+</ion-header-bar>
+<div class="bar bar-subheader details bar-positive no-border" >
+    <h1 class="title">{{contact.name}}</h1>
+</div>
+<ion-content padding="10" class="contentDetail">
+    <div class="list  no-lines">
+        <a class="item item-icon-left" ui-sref="details" href="#" >
+            <i class="icon ion-android-call"></i>
+            <h3>{{contact.phonePrimary}}</h3>
+            <p>Telefono Primario</p>
+        </a>
+        <a class="item item-icon-left" ui-sref="details" href="#" >
+            <i class="icon ion-android-phone-portrait"></i>
+            <h3>{{contact.mobile}}</h3>
+            <p>Movil</p>
+        </a>
+        <a class="item item-icon-left" ui-sref="details" href="#" >
+            <i class="icon ion-email"></i>
+            <h3>{{contact.email}}</h3>
+            <p>Correo</p>
+        </a>
+        <a class="item item-icon-left" ui-sref="details" href="#" >
+            <i class="icon ion-android-print"></i>
+            <h3>{{contact.fax}}</h3>
+            <p>Fax</p>
+        </a>
+        <a class="item item-icon-left" ui-sref="details" href="#" >
+            <i class="icon ion-card"></i>
+            <h3>{{contact.identification}}</h3>
+            <p>Identificación</p>
+        </a>
+        <div class="item item-divider">
+            <div class="row">
+                <div class="col">Direccion:</div>
+                <div class="col"><b>{{contact.address.city}}</b></div>
+            </div>
+        </div>
+        <a class="item item-text-wrap" ui-sref="details" href="#" >
+            <p>{{contact.address.address}}</p>
+        </a>
+        <div class="item item-divider">
+            Observaciones:
+        </div>
+        <a class="item item-text-wrap" ui-sref="details" href="#" >
+            <p>{{contact.observations}}</p>
+        </a>
+    </div> 
+</ion-content>        
+      

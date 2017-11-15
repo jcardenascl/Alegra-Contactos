@@ -1,0 +1,28 @@
+<ion-header-bar class="bar-assertive">
+    <h1 class="title">Alegra-Contactos</h1>
+    <button class="button button-icon" ng-click="sortToggle({{contacts}})">
+        <i class="icon ion-android-funnel"></i>
+    </button>
+</ion-header-bar>
+<button class="button button-float" data-ng-controller="modal" ng-click="openModal()">
+    <i class="icon ion-plus"></i>
+</button>
+    
+<ion-content ng-init="getcontacts()" overflow-scroll="false">
+    <div class="row  responsive-sm" ng-if="loading">
+        <div class="col col-center">
+            <ion-spinner icon="android"></ion-spinner>
+        </div>
+    </div>
+    <div class="list" ng-show="NotFound">
+        <div class="item item-icon-right">
+            <h2>No existen contactos Registrados</h2>
+            <button  class="button button-icon icon ion-refresh"></button >
+        </div>
+    </div>
+
+    <div class="list contact" ng-if="!NotFound">
+        <user-Contact ng-repeat="contact in contacts" name="{{contact.name}}" id="{{contact.id}}"></user-Contact>
+    </div>
+</ion-content>
+

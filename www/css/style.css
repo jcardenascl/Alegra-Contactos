@@ -1,0 +1,55 @@
+/* ---------------Modificaciones ion-header-bar------------------- */
+.bar.no-border {
+  border: none;
+  background-image: none !important;
+}
+.has-header {
+  top: 56px;
+}
+.bar{
+  height: 56px;
+}
+.bar .title {
+  height: 55px;
+  margin: 0 16px;
+}
+.platform-android .bar .title {
+  line-height: 50px;
+}
+.platform-android .bar h1.title {
+  font-size: 25px;
+}
+.bar-subheader.details{
+  height: 88px;
+}
+.bar-subheader.details .title{
+  top: inherit
+}
+/* -------------------------------------------------------- */
+
+/* ---------------Modificaciones ion-Content de la pagina details--------- */
+ion-content.contentDetail.scroll-content.ionic-scroll.overflow-scroll.has-header {
+  top: 132px;
+}
+/* -------------------------------------------------------- */
+
+
+
+/*---------------- Modificacion en la lista e item--------------- */
+.no-lines .item{
+  border-width: 0px;
+}
+.col-center {
+  text-align: center;
+}
+.contact .item h2 {
+  font-size: 18px;
+  line-height: 2.1;
+}
+/* -------------------------------------------------------- */
+
+/*---------------- Ocultamos el scroll bar--------------- */
+
+.scroll-bar-indicator{
+	display: none;
+}
